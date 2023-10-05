@@ -26,36 +26,52 @@ public class ArrayDiff {
     }
 
     public static int[] arrayDiff(int[] a, int[] b) {
-        for (int elementA : a) {
+//        List<Integer> listA = Arrays.stream(a).boxed().collect(Collectors.toList());
+//        List<Integer> listB = Arrays.stream(b).boxed().collect(Collectors.toList());
+//        listA.removeAll(listB);
+//        return listA.stream().mapToInt(e -> e).toArray();
 
-        }
 
-
-//        int[] finalIntsA = Arrays.stream(a).distinct().toArray();
-        int[] finalIntsB = Arrays.stream(b).distinct().toArray();
-        int i = 0;
-        List<Integer> result = new ArrayList<>();
-//        int[] result = new int[a.length];
-        if(b.length == 0 ){
-            System.out.println(Arrays.toString(a));
-            return a;
-        }
-        if(a.length == 0){
-            return a;
-        }
-        for (int paramOfA : a) {
-            for (int paramOfB : finalIntsB) {
-                if(paramOfA == paramOfB && !result.contains(paramOfA)){
-                    continue;
-                }
-                result.add(paramOfA);
-
-            }
-        }
-        int[] ints = result.stream().mapToInt(j -> j).toArray();
-        System.out.println(Arrays.toString(ints));
-        return ints;
+        List<Integer> collect1 = Arrays.stream(a).boxed().collect(Collectors.toList());
+        List<Integer> collect2 = Arrays.stream(b).boxed().collect(Collectors.toList());
+        collect1.removeAll(collect2);
+        return collect1.stream().mapToInt(x -> x).toArray();
     }
+
+
+
+    //my solution that turned out to be incorrect
+//    public static int[] arrayDiff(int[] a, int[] b) {
+//        for (int elementA : a) {
+//
+//        }
+//
+//
+////        int[] finalIntsA = Arrays.stream(a).distinct().toArray();
+//        int[] finalIntsB = Arrays.stream(b).distinct().toArray();
+//        int i = 0;
+//        List<Integer> result = new ArrayList<>();
+////        int[] result = new int[a.length];
+//        if(b.length == 0 ){
+//            System.out.println(Arrays.toString(a));
+//            return a;
+//        }
+//        if(a.length == 0){
+//            return a;
+//        }
+//        for (int paramOfA : a) {
+//            for (int paramOfB : finalIntsB) {
+//                if(paramOfA == paramOfB ){
+//                    continue;
+//                }
+//                result.add(paramOfA);
+//
+//            }
+//        }
+//        int[] ints = result.stream().mapToInt(j -> j).toArray();
+//        System.out.println(Arrays.toString(ints));
+//        return ints;
+//    }
 
 
 }
