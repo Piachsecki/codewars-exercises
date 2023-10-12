@@ -31,26 +31,16 @@ public class DeadFish {
         int tempSum = 0;
         int i = 0;
         for (String s : split) {
-            switch (s){
-                case "i":
-                    tempSum+=1;
-                    break;
-                case "d":
-                    tempSum--;
-                    break;
-                case "s":
-                    tempSum = (int)Math.pow(tempSum, 2);
-                    break;
-                case "o":
+            switch (s) {
+                case "i" -> tempSum += 1;
+                case "d" -> tempSum--;
+                case "s" -> tempSum = (int) Math.pow(tempSum, 2);
+                case "o" -> {
                     result[i] = tempSum;
                     i++;
-                    break;
-
+                }
             }
         }
-
-
-        System.out.println("result : " + Arrays.toString(result));
         return result;
 
     }
