@@ -1,5 +1,7 @@
 package kyu5;
 
+import java.math.BigInteger;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,20 +34,46 @@ public class StringIncrementer {
         incrementString("foo0043");
     }
 
-    public static String incrementString(String str) {
-        Pattern pattern = Pattern.compile("\\d+");
-        Matcher matcher = pattern.matcher(str);
-        StringBuilder result = new StringBuilder();
-        if (matcher.find()){
-            int number = Integer.parseInt(matcher.group());
-            number++;
-            result.append(matcher.replaceFirst(Integer.toString(number)));
-        }else {
-            result.append(str);
-        }
-
-
-        System.out.println("str = " + result);
-        return result.toString(); // you code here
+    public static String incrementString(String str){
+        String u = java.util.regex.Pattern.compile("(\\d+)$").matcher(str).replaceAll(x -> String.format("%0" + x.group().length() +"d", new BigInteger(x.group()).add(BigInteger.ONE)));
+        return u.matches(".*(?<!\\d)")?u+1:u;
     }
+
+    //how the solution should look like
+
+//
+//
+//    public static String incrementString(String str) {
+//        Pattern pattern = Pattern.compile("\\d+");
+//        Matcher matcher = pattern.matcher(str);
+//        StringBuilder result = new StringBuilder();
+//        if (matcher.find()){
+//
+//            String group = matcher.group();
+//            int[] ints = Arrays.stream(group.split(""))
+//                    .filter(x -> !x.equals("0"))
+//                    .mapToInt(Integer::valueOf)
+//                    .toArray();
+//            String number = "";
+//            for (int nums : ints) {
+//                number += nums;
+//            }
+//            Integer integer = Integer.parseInt(number + 1);
+//            if(String.valueOf(integer).length() > number.length()){
+//
+//            }
+//            System.out.println(number);
+//
+//
+////            int number = Integer.parseInt(matcher.group());
+////            number++;
+////            result.append(matcher.replaceFirst(Integer.toString(number)));
+//        }else {
+//            result.append(str);
+//        }
+//
+//
+////        System.out.println("str = " + result);
+//        return result.toString(); // you code here
+//    }
 }
