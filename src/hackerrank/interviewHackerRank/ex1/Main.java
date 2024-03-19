@@ -1,4 +1,4 @@
-package interviewHackerRank.ex1;
+package hackerrank.interviewHackerRank.ex1;
 
 import java.util.ArrayList;
 import java.util.HashMap;

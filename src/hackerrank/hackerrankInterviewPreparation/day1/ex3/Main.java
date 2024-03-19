@@ -1,4 +1,4 @@
-package hackerrankInterview.day1.ex3;
+package hackerrank.hackerrankInterviewPreparation.day1.ex3;
 
 public class Main {
     public static void main(String[] args) {

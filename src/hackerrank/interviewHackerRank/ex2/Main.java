@@ -1,4 +1,4 @@
-package interviewHackerRank.ex2;
+package hackerrank.interviewHackerRank.ex2;
 
 import java.util.List;
 

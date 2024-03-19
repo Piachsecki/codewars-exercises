@@ -1,4 +1,4 @@
-package hackerrankInterview.day1.ex2;
+package hackerrank.hackerrankInterviewPreparation.day1.ex2;
 
 import java.util.Arrays;
 import java.util.List;
